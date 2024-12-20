@@ -1,0 +1,24 @@
+{
+  "name": "app.js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "davlatzoda300@gmail.com",
+  "license": "ISC",
+  "description": "my first app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ilmkhona0/gittest.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ilmkhona0/gittest/issues"
+  },
+  "homepage": "https://github.com/Ilmkhona0/gittest#readme",
+  "dependencies": {
+    "mongoose": "^8.9.2"
+  }
+}
