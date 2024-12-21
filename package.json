@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Ilmkhona0/gittest#readme",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "mongoose": "^8.9.2"
   }
 }

@@ -3,9 +3,12 @@ import fs from 'fs';
 import path from 'path';
 import connectDB from './db.js';
 import User from './models/User.js';
+import dotenv from 'dotenv';
 
-const hostname = '127.0.0.1';
-const port = 8000;
+dotenv.config();
+
+const hostname = '0.0.0.0';
+const port = process.env.PORT || 8000;
 
 // Connect to MongoDB
 connectDB();
