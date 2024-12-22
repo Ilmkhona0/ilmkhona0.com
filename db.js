@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 
 dotenv.config(); // Ensure you have dotenv installed and configured
 
-const connectionString = process.env.MONGO_URI || 'mongodb://localhost:27017/ilmhona0';
+const connectionString = process.env.MONGO_URI;
 
 const connectDB = async () => {
     try {
