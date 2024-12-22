@@ -1,7 +1,7 @@
 import http from 'node:http';
 import fs from 'fs';
 import path from 'path';
-import connectDB from './db.js';
+import connectDB from './db.js'; // Import the mongoose configuration
 import User from './models/User.js';
 import dotenv from 'dotenv';
 
