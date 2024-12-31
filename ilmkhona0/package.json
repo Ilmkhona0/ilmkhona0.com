@@ -1,0 +1,32 @@
+{
+  "name": "app.js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "davlatzoda300@gmail.com",
+  "license": "ISC",
+  "description": "my first app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ilmkhona0/gittest.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ilmkhona0/gittest/issues"
+  },
+  "homepage": "https://github.com/Ilmkhona0/gittest#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.2",
+    "mquery": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
