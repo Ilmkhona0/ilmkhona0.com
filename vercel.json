@@ -9,7 +9,7 @@
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "ilmkhona/home.html"
+        "dest": "ilmkhona0.com/home.html"
       }
     ]
   }
