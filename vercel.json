@@ -2,14 +2,14 @@
     "version": 2,
     "builds": [
       {
-        "src": "ilmkhona0.com/home.html",
+        "src": "ilmkhona0/home.html",
         "use": "@vercel/static"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "ilmkhona0.com/home.html"
+        "dest": "ilmkhona0/home.html"
       }
     ]
   }
