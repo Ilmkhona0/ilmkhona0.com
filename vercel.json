@@ -2,14 +2,26 @@
   "version": 2,
   "builds": [
     {
-      "src": "ilmkhona0/home.html",
+      "src": "api/server.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "Home/home.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "Home/style.css",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
+      "src": "/api/(.*)",
+      "dest": "/api/server.js"
+    },
+    {
       "src": "/(.*)",
-      "dest": "ilmkhona0/home.html"
+      "dest": "/Home/$1"
     }
   ]
 }
