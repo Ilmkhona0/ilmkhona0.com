@@ -28,24 +28,14 @@ connectDB();
 
 const server = http.createServer((req, res) => {
     console.log(`Received request for ${req.url}`); // Debugging statement
+
     if (req.url === '/' || req.url === '/home') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/html');
-        fs.readFile(path.join(process.cwd(), 'home.html'), (err, data) => {
+        fs.readFile(path.join(process.cwd(), 'Home', 'home.html'), (err, data) => {
             if (err) {
                 res.statusCode = 500;
-                res.end('Error loading the HTML file');
-            } else {
-                res.end(data);
-            }
-        });
-    } else if (req.url === '/about') {
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'text/html');
-        fs.readFile(path.join(process.cwd(), 'clock shape.html'), (err, data) => {
-            if (err) {
-                res.statusCode = 500;
-                res.end('Error loading the HTML file');
+                res.end('Error loading home.html');
             } else {
                 res.end(data);
             }
@@ -53,20 +43,14 @@ const server = http.createServer((req, res) => {
     } else if (req.url === '/styles.css') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/css');
-        fs.readFile(path.join(process.cwd(), 'styles.css'), (err, data) => {
+        fs.readFile(path.join(process.cwd(), 'Home', 'styles.css'), (err, data) => {
             if (err) {
                 res.statusCode = 500;
-                res.end('Error loading the CSS file');
+                res.end('Error loading styles.css');
             } else {
                 res.end(data);
             }
         });
-    } else if (req.url === '/api/users') {
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/json');
-        // Simulate a database call
-        const users = [{ name: 'Muhammad Davlatzoda', email: 'ilmkhona@gmail.com' }];
-        res.end(JSON.stringify(users));
     } else {
         res.statusCode = 404;
         res.setHeader('Content-Type', 'text/plain');
