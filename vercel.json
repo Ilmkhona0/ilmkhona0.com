@@ -6,11 +6,11 @@
       "use": "@vercel/node"
     },
     {
-      "src": "home.html",
+      "src": "Home/home.html",
       "use": "@vercel/node"
     },
     {
-      "src": "styles.css",
+      "src": "Home/styles.css",
       "use": "@vercel/static"
     }
   ],
