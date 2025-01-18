@@ -7,20 +7,15 @@
     },
     {
       "src": "Home/home.html",
-      "use": "@vercel/node"
+      "use": "@vercel/static"
     },
     {
       "src": "Home/styles.css",
       "use": "@vercel/static"
     },
-<<<<<<< HEAD
-    { "src": "General_link/clock_shape.html",
+    { 
+      "src": "General_link/clock_shape.html",
       "use": "@vercel/static"
-=======
-    {
-      "src": "General_link/(.*)",
-      "use": "/@vercel/static"
->>>>>>> 8a28f5211cec76f1ab62d80e6753ef3485a326fe
     }
   ],
   "routes": [
@@ -30,13 +25,9 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/Home/$1"
+      "dest": "/Home/home.html"
     },
-<<<<<<< HEAD
     {
-=======
-    { 
->>>>>>> 8a28f5211cec76f1ab62d80e6753ef3485a326fe
       "src": "/General_link/(.*)",
       "dest": "/General_link/$1"
     }
