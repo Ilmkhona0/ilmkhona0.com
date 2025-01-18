@@ -16,6 +16,7 @@
     {
       "src": "General_link/(.*)",
       "use": "/@vercel/static"
+    }
   ],
   "routes": [
     {
