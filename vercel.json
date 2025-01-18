@@ -12,7 +12,10 @@
     {
       "src": "Home/styles.css",
       "use": "@vercel/static"
-    }
+    },
+    {
+      "src": "General_link/(.*)",
+      "dest": "/@vercel/static"
   ],
   "routes": [
     {
@@ -22,6 +25,10 @@
     {
       "src": "/(.*)",
       "dest": "/Home/$1"
+    },
+    { 
+      "src": "/General_link/(.*)",
+      "dest": "/General_link/$1"
     }
   ]
 }
