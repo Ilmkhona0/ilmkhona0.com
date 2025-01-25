@@ -51,6 +51,61 @@ const server = http.createServer((req, res) => {
                 res.end(data);
             }
         });
+    } else if (req.url === '/general') {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text.html');
+        fs.readFile(path.join(process.cwd(), 'General_link', 'general.html'), (err, data) => {
+            if (err) {
+                res.statusCode = 500;
+                res.end('Error loading general.html');
+            } else {
+                res.end(data);
+            }
+        });
+    } else if (req.url === '/Genereal_link/styles.css') {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/css');
+        fs.readFile(path.join(process.cwd(), 'General_link', 'styles.css'), (err, data) => {
+            if (err) {
+                res.statusCode = 500;
+                res.end('Error loading styles.css');
+            } else {
+                res.end(data);
+            }
+        });
+    } else if (req.url === '/General_link/favicon.ico') {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'image/x-icon');
+        fs.readFile(path.join(process.cwd(), 'General_link', 'favicon.ico'), (err, data) => {
+            if (err) {
+                res.statusCode = 500;
+                res.end('Error loading favicon.ico');
+            } else {
+                res.end(data);
+            }
+        });
+    } else if (req.url == '/GuessingGame.exe') {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/octet-stream');
+        fs.readFile(path.join(process.cwd(), 'General_link', 'GuesingGame.exe'), (err, data) => {
+            if (err) {
+                res.statusCode = 500;
+                res.end('Error loading GuessingGame.exe');
+            } else {
+                res.end(data);
+            }
+        });
+    } else if (req.url === '/General_link/clock_shape.html') {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/html');
+        fs.readFile(path.join(process.cwd(), 'General_link', 'clock_shape.html'), (err, data) => {
+            if (err) {
+                res.statusCode = 500;
+                res.end('Error loading clock_shape.html');
+            } else {
+                res.end(data);
+            }
+        });
     } else {
         res.statusCode = 404;
         res.setHeader('Content-Type', 'text/plain');
