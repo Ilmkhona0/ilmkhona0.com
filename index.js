@@ -40,7 +40,7 @@ const server = http.createServer((req, res) => {
                 res.end(data);
             }
         });
-    } else if (req.url === '/styles.css') {
+    } else if (req.url === 'Home/styles.css') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/css');
         fs.readFile(path.join(process.cwd(), 'Home', 'styles.css'), (err, data) => {
@@ -84,7 +84,7 @@ const server = http.createServer((req, res) => {
                 res.end(data);
             }
         });
-    } else if (req.url == '/GuessingGame.exe') {
+    } else if (req.url == 'General_link/GuessingGame.exe') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/octet-stream');
         fs.readFile(path.join(process.cwd(), 'General_link', 'GuesingGame.exe'), (err, data) => {
@@ -98,7 +98,7 @@ const server = http.createServer((req, res) => {
     } else if (req.url === '/General_link/clock_shape.html') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/html');
-        fs.readFile(path.join(process.cwd(), 'General_link', 'clock_shape.html'), (err, data) => {
+        fs.readFile(path.join(process.cwd(), 'General_link/Circle_clock', 'clock_shape.html'), (err, data) => {
             if (err) {
                 res.statusCode = 500;
                 res.end('Error loading clock_shape.html');
