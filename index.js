@@ -40,7 +40,7 @@ const server = http.createServer((req, res) => {
                 res.end(data);
             }
         });
-    } else if (req.url === 'Home/styles.css') {
+    } else if (req.url === 'styles.css') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/css');
         fs.readFile(path.join(process.cwd(), 'Home', 'styles.css'), (err, data) => {
