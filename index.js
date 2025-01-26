@@ -84,7 +84,7 @@ const server = http.createServer((req, res) => {
                 res.end(data);
             }
         });
-    } else if (req.url == 'GuessingGame') {
+    } else if (req.url == '/GuessingGame') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/octet-stream');
         fs.readFile(path.join(process.cwd(), 'Home', 'GuesingGame'), (err, data) => {
