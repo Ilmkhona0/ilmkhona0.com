@@ -84,13 +84,13 @@ const server = http.createServer((req, res) => {
                 res.end(data);
             }
         });
-    } else if (req.url == 'General_link/GuessingGame.exe') {
+    } else if (req.url == 'General_link/GuessingGame') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/octet-stream');
-        fs.readFile(path.join(process.cwd(), 'General_link', 'GuesingGame.exe'), (err, data) => {
+        fs.readFile(path.join(process.cwd(), 'General_link', 'GuesingGame'), (err, data) => {
             if (err) {
                 res.statusCode = 500;
-                res.end('Error loading GuessingGame.exe');
+                res.end('Error loading GuessingGame');
             } else {
                 res.end(data);
             }
