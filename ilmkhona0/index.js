@@ -43,7 +43,7 @@ const server = http.createServer((req, res) => {
     } else if (req.url === '/styles.css') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/css');
-        fs.readFile(path.join(process.cwd(), 'Home', 'styles.css'), (err, data) => {
+        fs.readFile(path.join(process.cwd(), 'styles.css'), (err, data) => {
             if (err) {
                 res.statusCode = 500;
                 res.end('Error loading styles.css');
