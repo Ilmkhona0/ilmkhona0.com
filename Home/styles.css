@@ -17,6 +17,7 @@ header {
     width: 80%;
     margin: auto;
     overflow: hidden;
+    flex-grow: 1;
 }
 .gallery img {
     width: 100%;
