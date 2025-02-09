@@ -32,6 +32,9 @@ header {
 .contacts-description {
     color: black; /* Change text color to black */
     margin-top: 10px;
+    .contacts-description {
+    margin-left: auto; /* Move to the end of the line */
+}
 }
 .footer-links a {
     display: block;
