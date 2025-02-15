@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "github-actions.use-enterprise": true,
     "github-actions.workflows.pinned.refresh.enabled": true,
@@ -5,4 +6,13 @@
     "githubPullRequests.experimental.notificationsView": true,
     "githubPullRequests.experimental.useQuickChat": true,
     "github.copilot.chat.scopeSelection": true
+=======
+{
+    "github-actions.use-enterprise": true,
+    "github-actions.workflows.pinned.refresh.enabled": true,
+    "githubPullRequests.experimental.chat": true,
+    "githubPullRequests.experimental.notificationsView": true,
+    "githubPullRequests.experimental.useQuickChat": true,
+    "github.copilot.chat.scopeSelection": true
+>>>>>>> b3504840a1af7dd805aa9d8c1cb0e402646f4e47
 }

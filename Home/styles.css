@@ -18,7 +18,11 @@ header {
     width: 80%;
     margin: auto;
     overflow: hidden;
+<<<<<<< HEAD
     flex-grow: 1;
+=======
+    flex-grow: 8;
+>>>>>>> b3504840a1af7dd805aa9d8c1cb0e402646f4e47
 }
 .gallery img {
     width: 100%;
@@ -33,6 +37,8 @@ header {
 .contacts-description {
     color: black; /* Change text color to black */
     margin-top: 10px;
+    margin-left: auto; /* Move to the end of the line */
+}
 }
 .footer-links a {
     display: block;
@@ -40,9 +46,17 @@ header {
 }
 footer {
     margin-top: auto;
+<<<<<<< HEAD
     background-color: #ffffff;
     color: #5c5858;
     padding: 10px 0;
     text-align: center;
     width: 100%;
 }
+=======
+    background-color: #ffffff76;
+    color: #5c5858;
+    padding: 10px 0;
+    text-align: center;
+}
+>>>>>>> b3504840a1af7dd805aa9d8c1cb0e402646f4e47

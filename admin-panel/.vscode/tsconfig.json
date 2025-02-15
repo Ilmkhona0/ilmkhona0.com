@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "compilerOptions": {
     "target": "ES6",
@@ -12,4 +13,20 @@
     "moduleResolution": "node"
   },
   "include": ["src"]
+=======
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ESNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx",
+    "types": ["react", "react-dom"],
+    "baseUrl": "./src",
+    "moduleResolution": "node"
+  },
+  "include": ["src"]
+>>>>>>> b3504840a1af7dd805aa9d8c1cb0e402646f4e47
 }
