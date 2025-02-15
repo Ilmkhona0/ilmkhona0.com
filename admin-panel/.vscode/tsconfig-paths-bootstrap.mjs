@@ -30,7 +30,7 @@ async function bootstrap() {
 
     console.log('ts-node registered');
 
-    await import(pathToFileURL('../src/index.tsx').href);
+    await import(pathToFileURL('..src/index.tsx').href);
     console.log('index.tsx imported');
   } catch (error) {
     console.error('Error during bootstrap:', error);

@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #65a7ed;
+    display: flex;
     flex-direction: column;
     min-height: 100vh;
 
@@ -17,7 +18,7 @@ header {
     width: 80%;
     margin: auto;
     overflow: hidden;
-    flex-grow: 8;
+    flex-grow: 1;
 }
 .gallery img {
     width: 100%;
@@ -39,8 +40,9 @@ header {
 }
 footer {
     margin-top: auto;
-    background-color: #ffffff76;
+    background-color: #ffffff;
     color: #5c5858;
     padding: 10px 0;
     text-align: center;
+    width: 100%;
 }

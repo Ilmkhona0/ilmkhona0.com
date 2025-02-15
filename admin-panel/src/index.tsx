@@ -8,3 +8,5 @@ root.render(
     <App />
   </React.StrictMode>
 );
+
+export {}; // This ensures the file is treated as a module
