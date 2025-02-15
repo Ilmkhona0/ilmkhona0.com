@@ -3,6 +3,8 @@ import fs from 'fs';
 import path from 'path';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import express from 'express';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -26,7 +28,28 @@ const connectDB = async () => {
 // Connect to MongoDB
 connectDB();
 
-const server = http.createServer((req, res) => {
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+// Define a Mongoose schema and model
+const itemSchema = new mongoose.Schema({
+    title: String
+});
+const Item = mongoose.model('Item', itemSchema);
+
+// API endpoint to get items
+app.get('/api/items', async (req, res) => {
+    try {
+        const items = await Item.find();
+        res.json(items);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+// Serve static files and handle other routes
+app.use((req, res) => {
     console.log(`Received request for ${req.url}`); // Debugging statement
 
     if (req.url === '/' || req.url === '/home') {
@@ -40,10 +63,10 @@ const server = http.createServer((req, res) => {
                 res.end(data);
             }
         });
-    } else if (req.url === 'styles.css') {
+    } else if (req.url === '/styles.css') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/css');
-        fs.readFile(path.join(process.cwd(),  'styles.css'), (err, data) => {
+        fs.readFile(path.join(process.cwd(), 'Home', 'styles.css'), (err, data) => {
             if (err) {
                 res.statusCode = 500;
                 res.end('Error loading styles.css');
@@ -53,7 +76,7 @@ const server = http.createServer((req, res) => {
         });
     } else if (req.url === '/general') {
         res.statusCode = 200;
-        res.setHeader('Content-Type', 'text.html');
+        res.setHeader('Content-Type', 'text/html');
         fs.readFile(path.join(process.cwd(), 'General_link', 'general.html'), (err, data) => {
             if (err) {
                 res.statusCode = 500;
@@ -62,7 +85,7 @@ const server = http.createServer((req, res) => {
                 res.end(data);
             }
         });
-    } else if (req.url === '/Genereal_link/styles.css') {
+    } else if (req.url === '/General_link/styles.css') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/css');
         fs.readFile(path.join(process.cwd(), 'General_link', 'styles.css'), (err, data) => {
@@ -84,7 +107,20 @@ const server = http.createServer((req, res) => {
                 res.end(data);
             }
         });
-    } else if (req.url == 'GuessingGame') {
+
+    } else if (req.url === '/Secret Messages') {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/octet-stream');
+        fs.readfile(path.join(process.cwd(), 'Home', 'Secret Messages'), (err, data) => {
+            if (err) {
+                res.statusCode = 500;
+                res.end('Error loading Secret Messages');
+            } else {
+                res.end(data);
+            }     
+        });
+
+    } else if (req.url == '/GuessingGame') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/octet-stream');
         fs.readFile(path.join(process.cwd(), 'Home', 'GuesingGame'), (err, data) => {
@@ -95,10 +131,10 @@ const server = http.createServer((req, res) => {
                 res.end(data);
             }
         });
-    } else if (req.url === '/General_link/Circle_clock/clock_shape.html') {
+    } else if (req.url === '/Home/Circle_clock/clock_shape.html') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/html');
-        fs.readFile(path.join(process.cwd(), 'General_link/Circle_clock', 'clock_shape.html'), (err, data) => {
+        fs.readFile(path.join(process.cwd(), 'Home/Circle_clock', 'clock_shape.html'), (err, data) => {
             if (err) {
                 res.statusCode = 500;
                 res.end('Error loading clock_shape.html');
@@ -113,6 +149,6 @@ const server = http.createServer((req, res) => {
     }
 });
 
-server.listen(port, hostname, () => {
+app.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 });

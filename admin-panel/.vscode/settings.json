@@ -1,0 +1,8 @@
+{
+    "github-actions.use-enterprise": true,
+    "github-actions.workflows.pinned.refresh.enabled": true,
+    "githubPullRequests.experimental.chat": true,
+    "githubPullRequests.experimental.notificationsView": true,
+    "githubPullRequests.experimental.useQuickChat": true,
+    "github.copilot.chat.scopeSelection": true
+}

@@ -17,6 +17,7 @@ header {
     width: 80%;
     margin: auto;
     overflow: hidden;
+    flex-grow: 8;
 }
 .gallery img {
     width: 100%;
@@ -38,8 +39,8 @@ header {
 }
 footer {
     margin-top: auto;
-    background-color: #333;
-    color: #fff;
+    background-color: #ffffff76;
+    color: #5c5858;
     padding: 10px 0;
     text-align: center;
 }

@@ -8,29 +8,41 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "davlatzoda300@gmail.com",
+  "author": "ilmkhona@gmail.com",
   "license": "ISC",
-  "description": "my first app",
+  "description": "ilmkhona0.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ilmkhona0/gittest.git"
+    "url": "git+https://github.com/Ilmkhona0/ilmkhona0.com"
   },
   "bugs": {
-    "url": "https://github.com/Ilmkhona0/gittest/issues"
+    "url": "https://github.com/Ilmkhona0/ilmkhona0.com/issues"
   },
-  "homepage": "https://github.com/Ilmkhona0/gittest#readme",
+  "homepage": "https://github.com/Ilmkhona0/ilmkhona0.com/blob/main/Home/home.html",
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^6.4.3",
+    "axios": "^1.7.9",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "mongoose": "^8.9.2",
-    "mquery": "^5.0.0"
+    "mquery": "^5.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.1.5",
+    "cors": "^2.8.5"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0"
   },
   "engines": {
-    "node": "22.x",
-    "npm": "6.x"
+    "node": "20.x",
+    "npm": "11.x"
   }
 }
