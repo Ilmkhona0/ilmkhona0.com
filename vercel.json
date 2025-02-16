@@ -22,7 +22,7 @@
       "use": "@vercel/static"
    },
    {
-     "src": "Home/GuessingGame/src/GuessingGame.exe
+     "src": "Home/GuessingGame/src/GuessingGame.exe,
      "use": "@vercel/static"
    }
     
