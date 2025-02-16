@@ -110,11 +110,11 @@ app.use((req, res) => {
 
     } else if (req.url === 'Home/Secret Messages') {
         res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/octet-stream');
-        fs.readfile(path.join(process.cwd(), 'Home', 'Secret Messages', 'Secret Messages.exe'), (err, data) => {
+        res.setHeader('Content-Type', 'text/html');
+        fs.readfile(path.join(process.cwd(), 'Home', 'Secret_Messages.html'), (err, data) => {
             if (err) {
                 res.statusCode = 500;
-                res.end('Error loading Secret Messages.exe');
+                res.end('Error loading Secret_Messages.html');
             } else {
                 res.end(data);
             }     
