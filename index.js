@@ -108,7 +108,7 @@ app.use((req, res) => {
             }
         });
 
-    } else if (req.url === 'Home/Secret Messages') {
+    } else if (req.url === 'Home/Secret_Messages') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/html');
         fs.readfile(path.join(process.cwd(), 'Home', 'Secret_Messages.html'), (err, data) => {
