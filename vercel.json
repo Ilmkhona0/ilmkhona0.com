@@ -14,9 +14,18 @@
       "use": "@vercel/static"
     },
     { 
-      "src": "General_link/clock_shape.html",
+      "src": "General_link/Circle_clock/clock_shape.html",
       "use": "@vercel/static"
-    }
+    },
+    {
+      "src": "Home/Secret_Messages.html",
+      "use": "@vercel/static"
+   },
+   {
+     "src": "Home/GuessingGame/src/GuessingGame.exe
+     "use": "@vercel/static"
+   }
+    
   ],
   "routes": [
     {
