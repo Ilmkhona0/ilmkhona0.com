@@ -123,7 +123,7 @@ app.use((req, res) => {
     } else if (req.url == 'Home/GuessingGame') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/octet-stream');
-        fs.readFile(path.join(process.cwd(), 'Home', 'GuesingGame', 'GuessingGame.exe'), (err, data) => {
+        fs.readFile(path.join(process.cwd(), 'Home', 'GuessingGame', 'GuessingGame.exe'), (err, data) => {
             if (err) {
                 res.statusCode = 500;
                 res.end('Error loading GuessingGame.exe');
