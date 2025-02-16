@@ -99,11 +99,11 @@ const server = http.createServer((req, res) => {
     
     } else if (req.url == '/Home/Secret Messages') {
         res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/octet-stream');
-        fs.readFile(path.join(process.cwd(), 'Secret Messages'), (err, data) => {
+        res.setHeader('Content-Type', 'text/html');
+        fs.readFile(path.join(process.cwd(), 'Secret_Messages.html'), (err, data) => {
             if (err) {
                 res.statusCode = 500;
-                res.end('Error loading Secret Messages');
+                res.end('Error loading Secret_Messages.html');
             } else {
                 res.end(data);
             }
