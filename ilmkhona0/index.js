@@ -29,7 +29,7 @@ connectDB();
 const server = http.createServer((req, res) => {
     console.log(`Received request for ${req.url}`); // Debugging statement
 
-    if (req.url === '/' || req.url === '/home') {
+    if (req.url === '/' || req.url === 'Home/home') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/html');
         fs.readFile(path.join(process.cwd(), 'Home', 'home.html'), (err, data) => {
@@ -40,7 +40,7 @@ const server = http.createServer((req, res) => {
                 res.end(data);
             }
         });
-    } else if (req.url === '/styles.css') {
+    } else if (req.url === '/Home/styles.css') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/css');
         fs.readFile(path.join(process.cwd(), 'styles.css'), (err, data) => {
@@ -51,7 +51,7 @@ const server = http.createServer((req, res) => {
                 res.end(data);
             }
         });
-    } else if (req.url === '/general') {
+    } else if (req.url === 'General_link/general') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text.html');
         fs.readFile(path.join(process.cwd(), 'General_link', 'general.html'), (err, data) => {
@@ -85,7 +85,7 @@ const server = http.createServer((req, res) => {
             }
         });
 
-    } else if (req.url == 'Secret Messages') {
+    } else if (req.url == '/Home/Secret Messages') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/octet-stream');
         fs.readFile(path.join(process.cwd(), 'Secret Messages'), (err, data) => {
@@ -97,13 +97,13 @@ const server = http.createServer((req, res) => {
             }
         });
     
-    } else if (req.url == 'General_link/GuessingGame') {
+    } else if (req.url == '/General_link/GuessingGame/GuessingGame.exe') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/octet-stream');
-        fs.readFile(path.join(process.cwd(), 'General_link', 'GuesingGame'), (err, data) => {
+        fs.readFile(path.join(process.cwd(), 'General_link', 'GuesingGame', 'GuessingGame.exe'), (err, data) => {
             if (err) {
                 res.statusCode = 500;
-                res.end('Error loading GuessingGame');
+                res.end('Error loading GuessingGame.exe');
             } else {
                 res.end(data);
             }
@@ -111,7 +111,7 @@ const server = http.createServer((req, res) => {
     } else if (req.url === '/General_link/Circle_clock/clock_shape.html') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/html');
-        fs.readFile(path.join(process.cwd(), 'General_link/Circle_clock', 'clock_shape.html'), (err, data) => {
+        fs.readFile(path.join(process.cwd(), 'General_link', 'Circle_clock', 'clock_shape.html'), (err, data) => {
             if (err) {
                 res.statusCode = 500;
                 res.end('Error loading clock_shape.html');
