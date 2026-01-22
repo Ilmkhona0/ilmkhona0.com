@@ -1,62 +1,172 @@
+/* Reset and base styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #65a7ed;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f4fc;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-}
+/* Header */
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
+  background-color: #222;
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
+
+.site-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.profile-header {
+  position: absolute;
+  left: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.username {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.login-register {
+  position: absolute;
+  right: 40px;
+  background-color: white;
+  color: #222;
+  padding: 8px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-register:hover {
+  background-color: orange;
+  color: white;
+}
+
+/* Main container */
 .container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-<<<<<<< HEAD
-    flex-grow: 1;
-=======
-    flex-grow: 8;
->>>>>>> b3504840a1af7dd805aa9d8c1cb0e402646f4e47
+  width: 90%;
+  max-width: 1000px;
+  margin: 30px auto;
+  flex-grow: 1;
 }
-.gallery img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
+
+/* Sections */
+main section {
+  background-color: white;
+  padding: 20px 25px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+
+.links-section a {
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
 }
-.contacts-description {
-    color: black; /* Change text color to black */
-    margin-top: 10px;
-    margin-left: auto; /* Move to the end of the line */
+
+.links-section a:hover {
+  color: orange;
 }
+
+.app-description {
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
 }
-.footer-links a {
-    display: block;
-    margin-bottom: 10px;
+
+/* Contacts */
+.contacts-section p {
+  margin: 8px 0;
+  font-size: 16px;
 }
+
+.contacts-section a {
+  color: #297fb9;
+  text-decoration: none;
+}
+
+.contacts-section a:hover {
+  text-decoration: underline;
+}
+
+/* Comments */
+.comments-section h2 {
+  margin-bottom: 10px;
+}
+
+.form-container {
+  background-color: #fff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: orange;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: darkorange;
+}
+
+.comments-list p {
+  background-color: #f5f5f5;
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+/* Footer */
 footer {
-    margin-top: auto;
-<<<<<<< HEAD
-    background-color: #ffffff;
-    color: #5c5858;
-    padding: 10px 0;
-    text-align: center;
-    width: 100%;
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
 }
-=======
-    background-color: #ffffff76;
-    color: #5c5858;
-    padding: 10px 0;
-    text-align: center;
-}
->>>>>>> b3504840a1af7dd805aa9d8c1cb0e402646f4e47
+
