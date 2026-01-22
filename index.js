@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
-
+import Comment from './models/Comment.js';
 dotenv.config();
 
 const hostname = 'localhost';
@@ -32,6 +32,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
 // Define a Mongoose schema and model
 const itemSchema = new mongoose.Schema({
     title: String
@@ -48,6 +49,26 @@ app.get('/api/items', async (req, res) => {
     }
 });
 
+// API endpoint to pos a comment
+app.post['/api/comments', async (req, res) => {
+    try {
+        const comment = new omment(req.body);
+        await comment.save();
+        res.stats(201).json(comment);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+//API endpoints to get comments
+app.get('/api/comments', async (req, res) => {
+    try {
+        const comments = await Comment.find().sort({ timestamp: -1 });
+        res.json(comments);
+    } catch (err) {
+        res.status(500).json({ message: err.meassage });
+    }
+});
 // Serve static files and handle other routes
 app.use((req, res) => {
     console.log(`Received request for ${req.url}`); // Debugging statement
