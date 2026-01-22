@@ -1,33 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>ilmkhona0/Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ilmkhona0 | Home</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <body>
-    <div class="clock">
-        <span></span>
+  <header>
+    <div class="profile-header">
+      <img src="profile.jpg" alt="Profile Picture" class="profile-picture" />
+      <span class="username">ilmkhona0</span>
     </div>
-    <h1>ilmkhona0</h1>
-    <div class="footer-links">
-        <a href="/General_link/general.html"><i class="fas fa-info-circle"></i> General_link</a>
-    </div>
-        <a href="Home/GuessingGame/src/GuessingGame.exe" download>Install GuessingGame</a>
-    <footer>
-        <div class="footer-links">
-            <a href="Home/Secret_Messages.html"<i class="fas fa-info-circle"></i Secret Messages App</a>
-        </div>
-            <div class="footer-links">
-            <a href="#contacts"> <i class="fas fa-address-book"></i> Contact us</a>
-        </div>
-        <div id="contacts" class="contacts-description">
-            <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/ilmkhona0" target="_blank">ilmkhona0</a></p>
-            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:ilmkhona@gmail.com">ilmkhona@gmail.com</a></p>
-        </div>   
-    </footer>
+    <h1 class="site-title">Welcome to ilmkhona0</h1>
+    <a href="register-login.html" class="login-register"><i class="fas fa-user-plus"></i> Login / Register</a>
+  </header>
+
+  <main class="container">
+    <section class="links-section">
+      <h2>Explore</h2>
+      <a href="General_link/general.html"><i class="fas fa-info-circle"></i> General</a>
+      <a href="clock_shape.html"><i class="fas fa-clock"></i> Circle Clock</a>
+      <a href="GuessingGame/src/GuessingGame.exe" download onclick="showDescription()"><i class="fas fa-gamepad"></i> Download GuessingGame.exe</a>
+      <p id="description-container" class="app-description" style="display: none;">Think you're good at guessing numbers? Challenge yourself with this exciting guessing game.</p>
+      <a href="Secret_Messages.html"><i class="fas fa-envelope-open-text"></i> Secret Messages</a>
+    </section>
+
+    <section class="contacts-section">
+      <h2>Contact Us</h2>
+      <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/ilmkhona0" target="_blank">ilmkhona0</a></p>
+      <p><i class="fas fa-envelope"></i> Email: <a href="mailto:ilmkhona@gmail.com">ilmkhona@gmail.com</a></p>
+    </section>
+
+    <section class="comments-section">
+      <h2>Leave a Comment</h2>
+      <form id="commentForm" class="form-container">
+        <label for="name">Your Name</label>
+        <input id="name" name="name" required />
+        <label for="message">Your Comment</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+      <div id="comments" class="comments-list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 ilmkhona0. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showDescription() {
+      document.getElementById("description-container").style.display = "block";
+    }
+
+    document.getElementById('commentForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const data = {
+        name: form.name.value,
+        message: form.message.value
+      };
+      await fetch('/api/comments', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      form.reset();
+      loadComments();
+    });
+
+    async function loadComments() {
+      const res = await fetch('/api/comments');
+      const comments = await res.json();
+      const container = document.getElementById('comments');
+      container.innerHTML = comments.map(c => `<p><strong>${c.name}</strong>: ${c.message}</p>`).join('');
+    }
+
+    loadComments();
+  </script>
 </body>
 </html>
+
