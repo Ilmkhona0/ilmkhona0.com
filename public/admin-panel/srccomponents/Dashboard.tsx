@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -26,7 +25,7 @@ const Dashboard: React.FC = () => {
   );
 };
 
-=======
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -54,5 +53,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
->>>>>>> b3504840a1af7dd805aa9d8c1cb0e402646f4e47
 export default Dashboard;
