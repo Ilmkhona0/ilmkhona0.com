@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/App';
@@ -11,7 +10,7 @@ root.render(
 );
 
 export {}; // This ensures the file is treated as a module
-=======
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/App';
@@ -22,4 +21,4 @@ root.render(
     <App />
   </React.StrictMode>
 );
->>>>>>> b3504840a1af7dd805aa9d8c1cb0e402646f4e47
+
