@@ -8,50 +8,82 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
-<body>
-  <header>
-    <div class="profile-header">
-      <img src="profile.jpg" alt="Profile Picture" class="profile-picture" />
-      <span class="username">ilmkhona0</span>
-    </div>
-    <h1 class="site-title">Welcome to ilmkhona0</h1>
-    <a href="register-login.html" class="login-register"><i class="fas fa-user-plus"></i> Login / Register</a>
-  </header>
 
+<body>
+
+  <!-- HAMBURGER MENU BUTTON -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <!-- SIDEBAR MENU -->
+  <nav id="sidebar" class="sidebar">
+    <a href="home.html"><i class="fas fa-home"></i> Home</a>
+    <a href="#apps"><i class="fas fa-gamepad"></i> Apps</a>
+    <a href="#contact"><i class="fas fa-phone"></i> Contact</a>
+    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+  </nav>
+
+  <!-- HEADER -->
+  <header>
+    <div  class="site-title">ilmkhona0</div>
+    
+    <a href="register-login.html" class="login-register">
+      <i class="fas fa-user-plus"></i> Login / Register
+    </a>
+  </header>  
+
+  <!-- MAIN CONTENT -->
   <main class="container">
-    <section class="links-section">
-      <h2>Explore</h2>
-      <a href="General_link/general.html"><i class="fas fa-info-circle"></i> General</a>
-      <a href="clock_shape.html"><i class="fas fa-clock"></i> Circle Clock</a>
-      <a href="GuessingGame/src/GuessingGame.exe" download onclick="showDescription()"><i class="fas fa-gamepad"></i> Download GuessingGame.exe</a>
-      <p id="description-container" class="app-description" style="display: none;">Think you're good at guessing numbers? Challenge yourself with this exciting guessing game.</p>
-      <a href="Secret_Messages.html"><i class="fas fa-envelope-open-text"></i> Secret Messages</a>
+
+    <!-- APPS SECTION -->
+    <section id="apps" class="links-section">
+      <h2>Apps</h2>
+
+      <a href="/public/games/GuessingGame/src/GuessingGame.exe" download onclick="showDescription()">
+        <i class="fas fa-download"></i> Download GuessingGame.exe
+      </a>
+      <p id="description-container" class="app-description" style="display: none;">
+        Think you're good at guessing numbers? Challenge yourself with this exciting guessing game.
+      </p>
+
+      <a href="/public/games/Secret Messages/src/Secret Messages.exe" download>
+        <i class="fas fa-download"></i> Secret Messages.exe
+      </a>
+
     </section>
 
-    <section class="contacts-section">
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contacts-section">
       <h2>Contact Us</h2>
       <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/ilmkhona0" target="_blank">ilmkhona0</a></p>
       <p><i class="fas fa-envelope"></i> Email: <a href="mailto:ilmkhona@gmail.com">ilmkhona@gmail.com</a></p>
+      <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/+992550253311">ilmkhona0</a></p>
     </section>
 
+    <!-- COMMENTS SECTION -->
     <section class="comments-section">
       <h2>Leave a Comment</h2>
       <form id="commentForm" class="form-container">
-        <label for="name">Your Name</label>
-        <input id="name" name="name" required />
         <label for="message">Your Comment</label>
         <textarea id="message" name="message" rows="4" required></textarea>
         <button type="submit">Submit</button>
       </form>
       <div id="comments" class="comments-list"></div>
     </section>
+
   </main>
 
   <footer>
     <p>&copy; 2026 ilmkhona0. All rights reserved.</p>
   </footer>
 
+  <!-- SCRIPT -->
   <script>
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
+
     function showDescription() {
       document.getElementById("description-container").style.display = "block";
     }
@@ -59,15 +91,14 @@
     document.getElementById('commentForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const form = e.target;
-      const data = {
-        name: form.name.value,
-        message: form.message.value
-      };
+      const data = { message: form.message.value };
+
       await fetch('/api/comments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       });
+
       form.reset();
       loadComments();
     });
@@ -76,11 +107,13 @@
       const res = await fetch('/api/comments');
       const comments = await res.json();
       const container = document.getElementById('comments');
-      container.innerHTML = comments.map(c => `<p><strong>${c.name}</strong>: ${c.message}</p>`).join('');
+      container.innerHTML = comments.map(c => `<p><strong>${c.message}</strong></p>`).join('');
     }
 
     loadComments();
   </script>
+
 </body>
 </html>
+
 
