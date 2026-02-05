@@ -12,11 +12,12 @@ body {
 /* Header */
 header {
   background-color: #222;
-  color: white;
-  padding: 20px 40px;
+  color: rgb(28, 115, 201);
+  padding: 20px 60px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 20px;
   position: relative;
 }
 
@@ -33,17 +34,6 @@ header {
   gap: 10px;
 }
 
-.profile-picture {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.username {
-  font-size: 18px;
-  font-weight: bold;
-}
 
 .login-register {
   position: absolute;
@@ -169,4 +159,45 @@ footer {
   text-align: center;
   padding: 15px 0;
 }
+
+/* Hamburger Icon */
+.hamburger {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Sidebar Menu */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 220px;
+  height: 100%;
+  background-color: #222;
+  padding-top: 80px;
+  transition: 0.3s ease;
+  z-index: 999;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar a {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.sidebar a:hover {
+  background-color: orange;
+}
+
 
