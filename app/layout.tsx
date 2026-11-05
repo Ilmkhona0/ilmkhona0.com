@@ -1,0 +1,110 @@
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
+import "./globals.css";
+// CookieBanner is retired: Google's certified CMP (AdSense > Privacy & messaging)
+// now handles consent for EEA/UK/CH visitors and feeds it straight into gtag.
+// Two banners would conflict. The component file is kept in case you ever drop
+// AdSense and need your own banner back.
+import GoogleTags from "./components/GoogleTags";
+import Providers from "./components/Providers";
+
+// Google AdSense publisher id, e.g. "ca-pub-1234567890123456".
+// Set NEXT_PUBLIC_ADSENSE_CLIENT to load ads; leave unset to disable them.
+const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const SITE_URL = "https://ilmkhona0.com";
+const SITE_NAME = "ilmkhona0";
+const DESCRIPTION =
+  "ilmkhona0 — share images, videos, apps, games and files. A small personal hub built with Next.js.";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} | Home`,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: DESCRIPTION,
+  keywords: [
+    "ilmkhona0",
+    "ilmkhona",
+    "downloads",
+    "indie games",
+    "apps",
+    "videos",
+    "images",
+    "files",
+  ],
+  authors: [{ name: "ilmkhona0", url: SITE_URL }],
+  creator: "ilmkhona0",
+  publisher: "ilmkhona0",
+  alternates: { canonical: SITE_URL },
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    shortcut: ["/icon.svg"],
+  },
+  manifest: "/site.webmanifest",
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    title: SITE_NAME,
+    description: DESCRIPTION,
+    siteName: SITE_NAME,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_NAME,
+    description: DESCRIPTION,
+    creator: "@ilmkhona0",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <head>
+        {/* External CSS (FontAwesome) */}
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <GoogleTags />
+        {ADSENSE_CLIENT && (
+          <Script
+            id="adsbygoogle-init"
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+            crossOrigin="anonymous"
+            strategy="afterInteractive"
+          />
+        )}
+        <Providers>
+          {children}
+        </Providers>
+      </body>
+    </html>
+  );
+}
